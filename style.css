@@ -1,0 +1,27 @@
+/* style.css */
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: #fffaf5;
+  color: #333;
+  text-align: center;
+}
+
+header {
+  background: #d9c6af;
+  padding: 2rem;
+  color: white;
+}
+
+.intro, .details {
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+footer {
+  background: #eee;
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin-top: 4rem;
+}
+
