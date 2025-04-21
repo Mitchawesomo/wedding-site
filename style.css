@@ -13,6 +13,11 @@ header {
   color: white;
 }
 
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
 .intro, .details {
   margin: 2rem auto;
   max-width: 600px;
