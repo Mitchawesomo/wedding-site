@@ -1,14 +1,10 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
 import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
 
-GOOGLE_API_KEY=AIzaSyBY_OPbVrCYOp9MyPa8YHpKzy8Htm55MRA
-AUTH_DOMAIN=wedding-7bfad.firebaseapp.com
-APP_ID=1:681822932115:web:f851cdd8f33f4ca4e35166
-
 // Set up Firebase configuration
 const firebaseConfig = {
-  apiKey: GOOGLE_API_KEY,  // Reference Firebase API key as an environment variable
-  authDomain: AUTH_DOMAIN,  // Use Firebase auth domain
+  apiKey: AIzaSyBY_OPbVrCYOp9MyPa8YHpKzy8Htm55MRA,  // Reference Firebase API key as an environment variable
+  authDomain: 'wedding-7bfad.firebaseapp.com',  // Use Firebase auth domain
   projectId: 'wedding-7bfad',
   storageBucket: 'wedding-7bfad.appspot.com',
   messagingSenderId: '681822932115',
