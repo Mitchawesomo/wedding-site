@@ -1,14 +1,18 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
 import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
 
+GOOGLE_API_KEY=REMOVED
+AUTH_DOMAIN=REMOVED
+APP_ID=1:REMOVED:web:f851cdd8f33f4ca4e35166
+
 // Set up Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,  // Reference Firebase API key as an environment variable
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN,  // Use Firebase auth domain
+  apiKey: GOOGLE_API_KEY,  // Reference Firebase API key as an environment variable
+  authDomain: AUTH_DOMAIN,  // Use Firebase auth domain
   projectId: 'REMOVED',
   storageBucket: 'REMOVED.appspot.com',
   messagingSenderId: 'REMOVED',
-  appId: process.env.FIREBASE_APP_ID,  // Reference Firebase app ID
+  appId: 1:REMOVED:web:f851cdd8f33f4ca4e35166,  // Reference Firebase app ID
   measurementId: 'REMOVED'
 };
 
