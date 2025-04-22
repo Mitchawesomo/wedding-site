@@ -1,15 +1,15 @@
-// Use ES module imports, no require
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
 import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
 
+// Set up Firebase configuration
 const firebaseConfig = {
-  apiKey: "REMOVED",
-  authDomain: "REMOVED",
-  projectId: "REMOVED",
-  storageBucket: "REMOVED.appspot.com",
-  messagingSenderId: "REMOVED",
-  appId: "1:REMOVED:web:f851cdd8f33f4ca4e35166",
-  measurementId: "REMOVED"
+  apiKey: process.env.FIREBASE_API_KEY,  // Reference Firebase API key as an environment variable
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,  // Use Firebase auth domain
+  projectId: 'REMOVED',
+  storageBucket: 'REMOVED.appspot.com',
+  messagingSenderId: 'REMOVED',
+  appId: process.env.FIREBASE_APP_ID,  // Reference Firebase app ID
+  measurementId: 'REMOVED'
 };
 
 const app = initializeApp(firebaseConfig);

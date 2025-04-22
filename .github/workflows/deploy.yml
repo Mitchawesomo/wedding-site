@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # This tells GitHub to use the latest Ubuntu runner for the job
 
     steps:
       - name: Checkout repository
@@ -16,15 +16,24 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'  # or '18' if you want something newer
+          node-version: '14'  # Use Node.js version 14 (adjust based on your needs)
 
-      - name: Install Firebase CLI
-        run: npm install -g firebase-tools
+      - name: Install dependencies
+        run: npm install  # Install dependencies (e.g., Firebase tools)
 
       - name: Deploy to Firebase
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}  # This must be the actual Firebase CI token
+          FIREBASE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}  # Reference the secret for the Google API Key
+          FIREBASE_AUTH_DOMAIN: ${{ secrets.AUTH_DOMAIN }}  # Reference the Firebase Auth Domain
+          FIREBASE_APP_ID: ${{ secrets.APP_ID }}  # Reference the Firebase App ID
+          FIREBASE_CI_TOKEN: ${{ secrets.FIREBASE_TOKEN }}  # Reference the Firebase CI token
         run: |
-          echo "Deploying to Firebase..."
-          firebase deploy --only hosting --token "$FIREBASE_TOKEN"
+          # Install Firebase CLI
+          npm install -g firebase-tools
+
+          # Login to Firebase CLI using the Firebase CI token
+          firebase login:ci --token ${{ secrets.FIREBASE_CI_TOKEN }}  
+
+          # Deploy to Firebase hosting
+          firebase deploy --only hosting  # You can modify it to deploy other services like Firestore or Functions
 
