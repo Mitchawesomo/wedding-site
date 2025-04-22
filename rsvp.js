@@ -3,12 +3,12 @@ import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/fireba
 
 // Set up Firebase configuration
 const firebaseConfig = {
-  apiKey: REMOVED,  // Reference Firebase API key as an environment variable
+  apiKey: 'REMOVED',  // Reference Firebase API key as an environment variable
   authDomain: 'REMOVED',  // Use Firebase auth domain
   projectId: 'REMOVED',
   storageBucket: 'REMOVED.appspot.com',
   messagingSenderId: 'REMOVED',
-  appId: 1:REMOVED:web:f851cdd8f33f4ca4e35166,  // Reference Firebase app ID
+  appId: '1:REMOVED:web:f851cdd8f33f4ca4e35166',  // Reference Firebase app ID
   measurementId: 'REMOVED'
 };
 
