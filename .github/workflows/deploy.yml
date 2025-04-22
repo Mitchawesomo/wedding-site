@@ -1,0 +1,32 @@
+name: Deploy to Firebase
+
+on:
+  push:
+    branches:
+      - main  # Trigger deployment when changes are pushed to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # This tells GitHub to use the latest Ubuntu runner for the job
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Use Node.js version 14 (adjust based on your needs)
+
+      - name: Install dependencies
+        run: npm install  # Install dependencies (e.g., Firebase tools)
+
+      - name: Deploy to Firebase
+        env:
+          APP_ID: ${{ secrets.APP_ID }}  # Use the secret from GitHub
+	  AUTH_DOMAIN: ${{ secrets.AUTH_DOMAIN }}  # Use the secret from GitHub
+	  GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}  # Use the secret from GitHub
+        run: |
+          # Now deploy to Firebase using the Firebase CLI
+          #echo "Deploying to Firebase..."
+          #firebase deploy --token APP_ID
