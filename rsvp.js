@@ -1,25 +1,31 @@
+// Import the necessary Firebase modules
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
 import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
 
-// Set up Firebase configuration
+// Your Firebase configuration
 const firebaseConfig = {
-  apiKey: 'REMOVED',  // Reference Firebase API key as an environment variable
-  authDomain: 'REMOVED',  // Use Firebase auth domain
-  projectId: 'REMOVED',
-  storageBucket: 'REMOVED.appspot.com',
-  messagingSenderId: 'REMOVED',
-  appId: '1:REMOVED:web:f851cdd8f33f4ca4e35166',  // Reference Firebase app ID
-  measurementId: 'REMOVED'
+  apiKey: "REMOVED",
+  authDomain: "REMOVED",
+  projectId: "REMOVED",
+  storageBucket: "REMOVED.firebasestorage.app",
+  messagingSenderId: "REMOVED",
+  appId: "1:REMOVED:web:f851cdd8f33f4ca4e35166",
+  measurementId: "REMOVED"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+// Initialize Firestore
 const db = getFirestore(app);
 
+// Get the form and confirmation message elements
 const rsvpForm = document.getElementById('rsvpForm');
 const confirmationMessage = document.getElementById('confirmationMessage');
 
+// Event listener for form submission
 rsvpForm.addEventListener('submit', (e) => {
-  e.preventDefault();  // Prevent the default form submission behavior
+  e.preventDefault();  // Prevent default form submission
 
   const name = document.getElementById('name').value;
   const attending = document.getElementById('attendance').value;
@@ -38,7 +44,7 @@ rsvpForm.addEventListener('submit', (e) => {
     confirmationMessage.classList.remove('error');
     confirmationMessage.classList.add('success');
     confirmationMessage.style.display = 'block';
-    rsvpForm.reset(); // Reset form after submission
+    rsvpForm.reset();  // Reset the form after submission
   })
   .catch((error) => {
     confirmationMessage.textContent = 'Something went wrong. Please try again.';
