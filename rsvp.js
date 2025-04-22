@@ -1,15 +1,15 @@
-// Use ES module imports, no require
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
 import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
 
+// Set up Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBY_OPbVrCYOp9MyPa8YHpKzy8Htm55MRA",
-  authDomain: "wedding-7bfad.firebaseapp.com",
-  projectId: "wedding-7bfad",
-  storageBucket: "wedding-7bfad.appspot.com",
-  messagingSenderId: "681822932115",
-  appId: "1:681822932115:web:f851cdd8f33f4ca4e35166",
-  measurementId: "G-G60RPYXDCL"
+  apiKey: process.env.FIREBASE_API_KEY,  // Reference Firebase API key as an environment variable
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,  // Use Firebase auth domain
+  projectId: 'wedding-7bfad',
+  storageBucket: 'wedding-7bfad.appspot.com',
+  messagingSenderId: '681822932115',
+  appId: process.env.FIREBASE_APP_ID,  // Reference Firebase app ID
+  measurementId: 'G-G60RPYXDCL'
 };
 
 const app = initializeApp(firebaseConfig);
