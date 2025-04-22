@@ -3,12 +3,12 @@ import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/fireba
 
 // Set up Firebase configuration
 const firebaseConfig = {
-  apiKey: AIzaSyBY_OPbVrCYOp9MyPa8YHpKzy8Htm55MRA,  // Reference Firebase API key as an environment variable
+  apiKey: 'AIzaSyBY_OPbVrCYOp9MyPa8YHpKzy8Htm55MRA',  // Reference Firebase API key as an environment variable
   authDomain: 'wedding-7bfad.firebaseapp.com',  // Use Firebase auth domain
   projectId: 'wedding-7bfad',
   storageBucket: 'wedding-7bfad.appspot.com',
   messagingSenderId: '681822932115',
-  appId: 1:681822932115:web:f851cdd8f33f4ca4e35166,  // Reference Firebase app ID
+  appId: '1:681822932115:web:f851cdd8f33f4ca4e35166',  // Reference Firebase app ID
   measurementId: 'G-G60RPYXDCL'
 };
 
