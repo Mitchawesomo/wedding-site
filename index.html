@@ -4,21 +4,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <img src="images/wedding_monogram.png" alt="M & N Monogram" class="monogram" />
   <title>Mitch & Namita's Wedding</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1>Mitch & Namita</h1>
-    <p>We're getting married!</p>
+    <h1><span class="names">Mitch + Namita</span></h1>
   </header>
 
   <section class="intro">
     <h2>Save the Date</h2>
-    <p>July 19, 2025 – Madison, WI</p>
+    <p>July 19, 2025 &#8226; Madison, WI</p>
+    <p id="countdown" class="countdown-text">Loading...</p>
   </section>
 
-  <section class="details">
+ <section class="details">
     <h2>Wedding Weekend</h2>
     <ul>
       <li>💍 Wedding Ceremony – 4:00 PM CST</li>
@@ -26,9 +28,47 @@
     </ul>
   </section>
 
+ <div class="card-grid">
+  <a href="rsvp.html" class="card-button">
+    <h3>RSVP</h3>
+    <p>Let us know you're coming!</p>
+  </a>
+
+  <a href="schedule.html" class="card-button">
+    <h3>Schedule</h3>
+    <p>See what’s happening when.</p>
+  </a>
+
+  <a href="venue.html" class="card-button">
+    <h3>Venue</h3>
+    <p>Where to go and when to show.</p>
+  </a>
+ </div>
+
+  
   <footer>
     <p>With love, Mitch & Namita</p>
   </footer>
+
+ <script>
+  const weddingDate = new Date("2025-07-19T00:00:00");
+  const countdownElement = document.getElementById("countdown");
+
+  function updateCountdown() {
+    const today = new Date();
+    const timeDiff = weddingDate - today;
+    const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+    if (daysLeft > 0) {
+      countdownElement.textContent = `${daysLeft} Days to Go!`;
+    } else {
+      countdownElement.textContent = "It's Wedding Time! 🎉";
+    }
+  }
+
+  updateCountdown(); // Call once when page loads
+ </script>
+
 </body>
 </html>
 

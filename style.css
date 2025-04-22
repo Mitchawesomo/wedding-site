@@ -7,10 +7,48 @@ body {
   text-align: center;
 }
 
+monogram {
+  width: 40px; /* Tweak as needed */
+  height: auto;
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+@media (max-width: 600px) {
+  .monogram {
+    width: 35px;
+  }
+}
+
 header {
   background: #d9c6af;
   padding: 2rem;
   color: white;
+}
+
+header h1 {
+ font-family: 'Playfair Display', serif;
+ font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive sizing */
+ margin: 0.5rem 0;
+}
+
+header p {
+ font-size: clamp(1rem, 3vw, 1.5rem); /* Also responsive */
+ margin: 0;
+}
+
+h1 span.names {
+  font-family: 'Great Vibes', cursive;
+}
+
+.countdown-text {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  color: #a67856;
 }
 
 ul {
@@ -30,3 +68,40 @@ footer {
   margin-top: 4rem;
 }
 
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin: 3rem auto;
+  max-width: 900px;
+}
+
+.card-button {
+  display: block;
+  width: 250px;
+  padding: 2rem;
+  background-color: #f7e5d6;
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
+}
+
+.card-button:hover {
+  background-color: #e0c3a6;
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.card-button h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.card-button p {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
