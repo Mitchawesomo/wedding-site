@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: #fffaf5;
+  color: #333;
+  text-align: center;
+}
+
+.monogram-container {
+  background-color: #fff;
+  padding-top: 1rem;
+}
+
+.monogram {
+  width: 300px;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem;
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+header {
+  background: #d9c6af;
+  padding: 2rem;
+  color: white;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin: 0.5rem 0;
+}
+
+h1 span.names {
+  font-family: 'Great Vibes', cursive;
+}
+
+.intro h2 {
+  font-size: 1.8rem;
+  color: #a67856;
+}
+
+.venue-section {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.venue-section h3 {
+  font-size: 1.5rem;
+  color: #a67856;
+}
+
+#map-container {
+  margin-top: 2rem;
+  position: relative;
+}
+
+#map {
+  width: 100%;
+  height: 300px;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.get-directions {
+  display: inline-block;
+  background-color: #f7e5d6;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 1rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.get-directions:hover {
+  background-color: #e0c3a6;
+}
+
+.back-link {
+  margin-top: 1rem;
+  text-decoration: none;
+  color: #a67856;
+  font-weight: bold;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background: #eee;
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin-top: 4rem;
+}
+
