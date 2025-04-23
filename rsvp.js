@@ -15,17 +15,13 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-// Initialize Firestore
 const db = getFirestore(app);
 
-// Get the form and confirmation message elements
 const rsvpForm = document.getElementById('rsvpForm');
 const confirmationMessage = document.getElementById('confirmationMessage');
 
-// Event listener for form submission
-rsvpForm.addEventListener('submit', (e) => {
-  e.preventDefault();  // Prevent default form submission
+rsvpForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
 
   const name = document.getElementById('name').value.trim();
   const attending = document.getElementById('attendance').value;
@@ -40,32 +36,33 @@ rsvpForm.addEventListener('submit', (e) => {
     return;
   }
 
-  // Save the RSVP to Firestore
-  addDoc(collection(db, "rsvps"), {
-    name,
-    attending,
-    guests,
-    dietary
-  })
-  .then(() => {
-    let message = '';
-    if (attending === 'Yes') {
-      message = 'RSVP submitted successfully! We can’t wait to see you!';
-    } else {
-      message = 'We’re sorry you can’t make it. We’ll miss you, but thank you for letting us know 💛';
-    }
+  try {
+    await addDoc(collection(db, "rsvps"), {
+      name,
+      attending,
+      guests,
+      dietary
+    });
+
+    const message = attending === 'Yes'
+      ? 'RSVP submitted successfully! We can’t wait to see you!'
+      : 'We’re sorry you can’t make it. We’ll miss you, but thank you for letting us know 💛';
 
     confirmationMessage.textContent = message;
     confirmationMessage.classList.remove('error');
     confirmationMessage.classList.add('success');
     confirmationMessage.style.display = 'block';
-    rsvpForm.reset();  // Reset the form after submission
-  })
-  .catch((error) => {
+
+    // Delay the reset to avoid clashing with the message
+    setTimeout(() => {
+      rsvpForm.reset();
+    }, 200); // short delay so nothing weird sneaks in
+
+  } catch (error) {
     confirmationMessage.textContent = 'Something went wrong. Please try again.';
     confirmationMessage.classList.remove('success');
     confirmationMessage.classList.add('error');
     confirmationMessage.style.display = 'block';
-  });
+  }
 });
 
