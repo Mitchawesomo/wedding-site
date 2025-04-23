@@ -27,20 +27,35 @@ const confirmationMessage = document.getElementById('confirmationMessage');
 rsvpForm.addEventListener('submit', (e) => {
   e.preventDefault();  // Prevent default form submission
 
-  const name = document.getElementById('name').value;
+  const name = document.getElementById('name').value.trim();
   const attending = document.getElementById('attendance').value;
   const guests = document.getElementById('guests').value;
   const dietary = document.getElementById('dietary').value;
 
+  if (!name) {
+    confirmationMessage.textContent = 'Please enter your name.';
+    confirmationMessage.classList.remove('success');
+    confirmationMessage.classList.add('error');
+    confirmationMessage.style.display = 'block';
+    return;
+  }
+
   // Save the RSVP to Firestore
   addDoc(collection(db, "rsvps"), {
-    name: name,
-    attending: attending,
-    guests: guests,
-    dietary: dietary
+    name,
+    attending,
+    guests,
+    dietary
   })
   .then(() => {
-    confirmationMessage.textContent = 'RSVP submitted successfully! We can’t wait to see you!';
+    let message = '';
+    if (attending === 'Yes') {
+      message = 'RSVP submitted successfully! We can’t wait to see you!';
+    } else {
+      message = 'We’re sorry you can’t make it. We’ll miss you, but thank you for letting us know 💛';
+    }
+
+    confirmationMessage.textContent = message;
     confirmationMessage.classList.remove('error');
     confirmationMessage.classList.add('success');
     confirmationMessage.style.display = 'block';
