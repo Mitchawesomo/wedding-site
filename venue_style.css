@@ -104,3 +104,22 @@ footer {
   text-decoration: underline;
   color: #805438;
 }
+
+.image-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.venue-image {
+  width: 100%; /* Make the image responsive */
+  max-width: 600px; /* Limit max size */
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.image-container p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
