@@ -41,30 +41,28 @@
     <p>Image by <a href="https://www.flickr.com/photos/2fs/6064497782/" target="_blank">2fs</a> / <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank">CC BY-NC-SA 2.0</a></p>
   </div>
 
-
   <footer>
     <p>With love, Mitch & Namita</p>
   </footer>
-
   
   REMOVED
   <script>
     let map;
 
       function initMap() {
-  const venueCoords = { lat: 43.0863, lng: -89.3268 };
+      const venueCoords = { lat: 43.0863, lng: -89.3268 };
   
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: venueCoords,
-    zoom: 15,
-  });
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: venueCoords,
+        zoom: 15,
+      });
 
-  const marker = new google.maps.Marker({
-    position: venueCoords,
-    map: map,
-    title: "The East Side Club",
-  });
-}
+      const marker = new google.maps.Marker({
+        position: venueCoords,
+        map: map,
+        title: "The East Side Club",
+      });
+    }
   </script>
 </body>
 </html>
