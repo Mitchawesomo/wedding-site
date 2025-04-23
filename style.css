@@ -100,3 +100,19 @@ footer {
   font-size: 1rem;
   margin-top: 0.5rem;
 }
+
+.birthday-image {
+  width: 100%; /* Make the image responsive */
+  max-width: 600px; /* Limit max size */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 2rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.image-container p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
