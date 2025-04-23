@@ -100,3 +100,7 @@ footer {
   margin-top: 4rem;
 }
 
+.get-directions:hover {
+  text-decoration: underline;
+  color: #805438;
+}

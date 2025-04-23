@@ -32,6 +32,8 @@
     </div>
   </section>
 
+  </section>
+
   <a href="index.html" class="back-link">← Back to Home</a>
 
   <footer>
@@ -42,18 +44,20 @@
   <script>
     let map;
 
-    function initMap() {
-      map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: 43.0566, lng: -89.3324 },
-        zoom: 15,
-      });
+	function initMap() {
+	  const eastSideClubLocation = { lat: 43.065487, lng: -89.327302 };
 
-      const marker = new google.maps.Marker({
-        position: { lat: 43.0566, lng: -89.3324 },
-        map: map,
-        title: "The East Side Club",
-      });
-    }
+  	  map = new google.maps.Map(document.getElementById("map"), {
+    	     center: eastSideClubLocation,
+             zoom: 15,
+          });
+
+          const marker = new google.maps.Marker({
+             position: eastSideClubLocation,
+             map: map,
+             title: "The East Side Club",
+          });
+     }
   </script>
 </body>
 </html>
