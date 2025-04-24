@@ -51,6 +51,12 @@ h1 span.names {
   color: #a67856;
 }
 
+.warning-text {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #b24c3d;
+}
+
 ul {
   list-style-type: none;
   padding-left: 0;

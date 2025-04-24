@@ -1,52 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RSVP Responses</title>
+  <link rel="stylesheet" href="styles.css" />
   <style>
     body {
-      font-family: sans-serif;
-      margin: 2rem;
-      background: #f9f9f9;
+      font-family: Arial, sans-serif;
+      margin: 20px;
     }
-    h1 {
-      text-align: center;
+    h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+      margin-top: 40px;
     }
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 2rem;
+      margin-bottom: 20px;
     }
     th, td {
-      padding: 1rem;
-      border: 1px solid #ddd;
+      border: 1px solid #ccc;
+      padding: 10px;
       text-align: left;
     }
-    th {
-      background-color: #efefef;
-    }
-    tr:nth-child(even) {
-      background-color: #f4f4f4;
+    .total {
+      font-weight: bold;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-  <h1>Guest Responses</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Attending</th>
-        <th>Guests</th>
-        <th>Dietary Restrictions</th>
-      </tr>
-    </thead>
-    <tbody id="rsvpTableBody">
-      <!-- RSVP entries will be inserted here -->
-    </tbody>
-  </table>
+  <h1>RSVP Responses</h1>
+  <div id="responses"></div>
 
-  <script type="module" src="rsvp_view.js"></script>
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
+    import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
+
+    const firebaseConfig = {
+      apiKey: "REMOVED",
+      authDomain: "REMOVED",
+      projectId: "REMOVED",
+      storageBucket: "REMOVED.firebasestorage.app",
+      messagingSenderId: "REMOVED",
+      appId: "1:REMOVED:web:f851cdd8f33f4ca4e35166",
+      measurementId: "REMOVED"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const responsesContainer = document.getElementById('responses');
+
+    function renderGroup(title, entries) {
+      const groupDiv = document.createElement('div');
+
+      const titleEl = document.createElement('h2');
+      titleEl.textContent = title;
+      groupDiv.appendChild(titleEl);
+
+      const table = document.createElement('table');
+      const thead = document.createElement('thead');
+      thead.innerHTML = '<tr><th>Name</th><th>Guests</th><th>Dietary Restrictions</th></tr>';
+      table.appendChild(thead);
+
+      const tbody = document.createElement('tbody');
+      let guestTotal = 0;
+
+      entries.forEach(entry => {
+        guestTotal += parseInt(entry.guests || 0);
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${entry.name}</td>
+          <td>${entry.guests}</td>
+          <td>${entry.dietary || ''}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      table.appendChild(tbody);
+      groupDiv.appendChild(table);
+
+      const totalEl = document.createElement('div');
+      totalEl.classList.add('total');
+      totalEl.textContent = `Total Guests: ${guestTotal}`;
+      groupDiv.appendChild(totalEl);
+
+      responsesContainer.appendChild(groupDiv);
+    }
+
+    async function loadRSVPs() {
+      const snapshot = await getDocs(collection(db, "rsvps"));
+      let entries = snapshot.docs.map(doc => doc.data());
+
+      entries.sort((a, b) => {
+        const aHasDiet = a.dietary && a.dietary.trim() !== '';
+        const bHasDiet = b.dietary && b.dietary.trim() !== '';
+        if (aHasDiet && !bHasDiet) return -1;
+        if (!aHasDiet && bHasDiet) return 1;
+        return 0;
+      });
+
+      const yesEntries = entries.filter(entry => entry.attending.toLowerCase() === 'yes');
+      const noEntries = entries.filter(entry => entry.attending.toLowerCase() === 'no');
+
+      renderGroup('Attending (Yes)', yesEntries);
+      renderGroup('Not Attending (No)', noEntries);
+    }
+
+    loadRSVPs();
+  </script>
 </body>
 </html>
 
