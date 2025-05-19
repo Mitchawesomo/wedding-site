@@ -63,6 +63,14 @@
    <p>With love, Mitch & Namita</p>
  </footer>
 
+ <!-- Tiny password-protected RSVP link -->
+  <div style="position: fixed; bottom: 10px; right: 10px; font-size: 12px; z-index: 1000;">
+   <a href="rsvp_view.html" 
+     style="background: #eee; padding: 5px 10px; border-radius: 12px; text-decoration: none; color: #333; box-shadow: 0 0 5px rgba(0,0,0,0.2);">
+    🔒 RSVP 
+   </a>
+ </div>
+
  <script>
   const weddingDate = new Date("2025-07-19T00:00:00");
   const countdownElement = document.getElementById("countdown");
@@ -73,7 +81,7 @@
     const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
 
     if (daysLeft > 0) {
-      countdownElement.textContent = `${daysLeft} Days to Go!`;
+      countdownElement.textContent = ${daysLeft} Days to Go!;
     } else {
       countdownElement.textContent = "It's Wedding Time! 🎉";
     }

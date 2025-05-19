@@ -30,9 +30,28 @@
       margin-top: 10px;
     }
   </style>
+  <script>
+    // Simple password gate
+    const password = "Drake25"; // change to your secret password
+    function checkPassword() {
+      const userPass = prompt("Please enter the password to view the RSVP list:");
+      if (userPass !== password) {
+        alert("Access denied.");
+        window.location.href = "index.html";
+      }
+    }
+    window.onload = checkPassword;
+  </script>
 </head>
 <body>
-  <h1>RSVP Responses</h1>
+  <h1>RSVP Responses
+
+   <a href="index.html" 
+     style="font-size: 0.8rem; padding: 6px 12px; background: #a67856; color: white; text-decoration: none; border-radius: 5px;">
+     ← Back to Home
+   </a>
+  </h1>
+
   <div id="responses"></div>
 
   <script type="module">
