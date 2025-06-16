@@ -93,6 +93,24 @@
       font-size: 0.9rem;
       margin-top: 4rem;
     }
+
+    .alert-box {
+	  background-color: #fff4f4;
+	  border-left: 5px solid #d9534f;
+	  color: #a94442;
+	  padding: 1rem;
+	  margin: 2rem auto;
+	  max-width: 600px;
+	  border-radius: 0.5rem;
+	  font-size: 1rem;
+	  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+	}
+
+	.bold-red {
+	  font-weight: bold;
+	  color: #c0392b;
+	}
+
   </style>
 </head>
 <body>
@@ -115,9 +133,9 @@
     Sun Prairie, WI 53590</p>
   </section>
 
-  <section class="alert">
-    <p>Heads up! Rooms are going fast, and many hotels in the area are already sold out due to the Dane County Fair happening that weekend. Book soon!</p>
-  </section>
+  <div class="alert-box">
+    <strong>Update:</strong> Our hotel block is now <span class="bold-red">fully booked</span>. Due to the Dane County Fair occuring this week & ColdPlay performing, accommodations in the area are very limited—please check nearby options soon!
+  </div>
 
   <section class="explore-link">
     <a href="https://www.google.com/travel/search?q=hotels%20in%20Madison%20WI%20July%2019%202025" target="_blank">→ Explore nearby hotels for July 19th</a>
