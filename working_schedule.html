@@ -30,33 +30,20 @@
       font-family: 'Great Vibes', cursive;
     }
 
-    .timeline-title {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #4b2e1e;
-      margin-top: 2rem;
-    }
-
-    .timeline-subtitle {
-      font-size: 1rem;
+    .intro h2 {
+      font-size: 1.8rem;
       color: #a67856;
-      margin-bottom: 1.5rem;
+      margin-top: 1rem;
     }
 
     .schedule-section {
       max-width: 600px;
-      margin: 0 auto;
+      margin: 2rem auto;
       background: white;
       padding: 2rem;
       border-radius: 1rem;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
       line-height: 2;
-    }
-
-    .schedule-note {
-      margin-top: 1.5rem;
-      font-size: 0.95rem;
-      color: #c2533f;
     }
 
     .weather-box {
@@ -67,59 +54,65 @@
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      position: relative;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
     }
 
-    .weather-toggle {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-    }
-
-    #toggle-unit {
-      padding: 0.3rem 0.7rem;
-      font-size: 0.85rem;
-      border: 1px solid #a67856;
-      border-radius: 5px;
-      background-color: white;
+    .weather-box h3 {
       color: #a67856;
-      cursor: pointer;
-      text-decoration: none;
+      margin-bottom: 1rem;
     }
 
-    #toggle-unit:hover {
-      background-color: #f3ece5;
+    .weather-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
     }
 
     .weather-icon {
-      font-size: 3rem;
-      margin-bottom: 0.3rem;
+      font-size: 2.5rem;
       animation: pulse 2s infinite;
     }
 
-    .weather-condition {
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-      font-weight: bold;
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
     }
 
-    .weather-temp {
-      font-size: 1.1rem;
+    .weather-main {
+      text-align: center;
       margin-bottom: 1rem;
     }
 
     .weather-columns {
       display: flex;
       justify-content: space-between;
-      text-align: left;
+      gap: 1rem;
       margin-top: 1rem;
-      gap: 2rem;
+      font-size: 0.95rem;
     }
 
-    .weather-column p {
-      margin: 0.5rem 0;
+    .weather-col {
+      flex: 1;
+      text-align: left;
+    }
+
+    .weather-col.right {
+      margin-left: 3rem;
+    }
+
+    .weather-col p {
+      margin: 0.3rem 0;
+    }
+
+    .temp-toggle {
+      font-size: 0.9rem;
+      color: #805438;
+      text-decoration: underline;
+      cursor: pointer;
+      margin-top: 1rem;
     }
 
     .back-link {
@@ -140,11 +133,6 @@
       font-size: 0.9rem;
       margin-top: 4rem;
     }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-    }
   </style>
 </head>
 <body>
@@ -154,38 +142,40 @@
   </header>
 
   <section class="intro">
-    <h2 class="timeline-title">Our Wedding Day Timeline</h2>
-    <p class="timeline-subtitle">Join us for an unforgettable celebration by the lake!</p>
+    <h2>Celebration Timeline</h2>
+    <p>All events take place Saturday, July 19, 2025.</p>
+    <p>The ceremony will be outdoors, lakeside 🌊 — everything else will be indoors.</p>
   </section>
 
   <section class="schedule-section">
-    <p>🕓 <strong>4:00 PM</strong> — Outdoor Lakefront Ceremony 🌊</p>
-    <p>🍸 <strong>5:00 PM</strong> — Cocktail Hour</p>
-    <p>🍽️ <strong>6:00 PM</strong> — Buffet Dinner, Featuring American and Indian Cuisine</p>
-    <p>🕺 <strong>8:00 PM</strong> — Dancing, Games & Fun💃</p>
-    <p>🌙 <strong>Midnight</strong> — Help Us Clean Up😉</p>
-    <p class="schedule-note"><em>Please note: The ceremony will be outdoors by the lake; dinner and dancing will take place indoors.</em></p>
+    <p>🕓 <strong>4:00 PM</strong> — Outdoor Ceremony by the lake</p>
+    <p>🍹 <strong>5:00 PM</strong> — Cocktail Hour</p>
+    <p>🍽️ <strong>6:00 PM</strong> — Buffet Dinner (American + Indian Cuisine)</p>
+    <p>🕺 <strong>8:00 PM</strong> — Dancing Begins</p>
+    <p>🌙 <strong>Midnight</strong> — Event Concludes</p>
   </section>
 
   <section class="weather-box">
-    <div class="weather-toggle">
-      <a href="#" id="toggle-unit">Show in °C</a>
+    <h3>Weather Forecast for July 19 – Madison, WI</h3>
+    <div class="weather-header">
+      <div class="weather-icon" id="weather-icon">⛅</div>
+      <div id="conditions">Loading...</div>
     </div>
-    <h3 style="color:#a67856;">Weather Forecast for July 19 – Madison, WI</h3>
-    <div class="weather-icon" id="weather-icon">⛅</div>
-    <div class="weather-condition" id="conditions">Partly cloudy</div>
-    <div class="weather-temp" id="temps">
-      <strong>High:</strong> <span id="temp-max">82°F</span> &nbsp;&nbsp;
-      <strong>Low:</strong> <span id="temp-min">63°F</span><br>
-      <strong>Feels Like:</strong> <span id="feels-like">89°F</span>
+    <div class="weather-main">
+      <p><strong>High:</strong> <span id="temp-max">Loading...</span></p>
+      <p><strong>Low:</strong> <span id="temp-min">Loading...</span></p>
+      <p><strong>Feels Like:</strong> <span id="feels-like">Loading...</span></p>
     </div>
+
+    <div class="temp-toggle" onclick="toggleUnits()">Show in °C</div>
+
     <div class="weather-columns">
-      <div class="weather-column">
+      <div class="weather-col">
         <p>💧 <strong>Humidity:</strong> <span id="humidity">Loading...</span></p>
         <p>🌧️ <strong>Precipitation:</strong> <span id="precip">Loading...</span></p>
         <p>💨 <strong>Wind:</strong> <span id="wind">Loading...</span></p>
       </div>
-      <div class="weather-column" style="text-align:right;">
+      <div class="weather-col right">
         <p>🌅 <strong>Sunrise:</strong> <span id="sunrise">Loading...</span></p>
         <p>🌇 <strong>Sunset:</strong> <span id="sunset">Loading...</span></p>
         <p>🔆 <strong>UV Index:</strong> <span id="uv">Loading...</span></p>
@@ -205,7 +195,9 @@
     const apiKey = "REMOVED";
     const location = "Madison,WI,USA";
     const targetDate = "2025-07-19";
-    let inCelsius = false;
+
+    let isCelsius = false;
+    let dataCache = {};
 
     const iconMap = {
       "clear": "☀️",
@@ -217,39 +209,42 @@
       "fog": "🌫️"
     };
 
-    const toF = f => `${Math.round(f)}°F`;
     const toC = f => `${Math.round((f - 32) * 5 / 9)}°C`;
+    const toF = f => `${Math.round(f)}°F`;
 
-    const toggleLink = document.getElementById("toggle-unit");
-    toggleLink.addEventListener("click", (e) => {
-      e.preventDefault();
-      inCelsius = !inCelsius;
-      toggleLink.textContent = inCelsius ? "Show in °F" : "Show in °C";
-      updateTemps();
-    });
-
-    let weatherData = {};
-
-    function updateTemps() {
-      const tempmax = weatherData.tempmax;
-      const tempmin = weatherData.tempmin;
-      const feelslike = weatherData.feelslike;
-      document.getElementById("temp-max").textContent = inCelsius ? toC(tempmax) : toF(tempmax);
-      document.getElementById("temp-min").textContent = inCelsius ? toC(tempmin) : toF(tempmin);
-      document.getElementById("feels-like").textContent = inCelsius ? toC(feelslike) : toF(feelslike);
+    function updateDisplay() {
+      const day = dataCache;
+      document.getElementById("temp-max").textContent = isCelsius
+        ? toC(day.tempmax)
+        : toF(day.tempmax);
+      document.getElementById("temp-min").textContent = isCelsius
+        ? toC(day.tempmin)
+        : toF(day.tempmin);
+      document.getElementById("feels-like").textContent = isCelsius
+        ? toC(day.feelslike)
+        : toF(day.feelslike);
+      document.querySelector(".temp-toggle").textContent = isCelsius
+        ? "Show in °F"
+        : "Show in °C";
     }
+
+    window.toggleUnits = function () {
+      isCelsius = !isCelsius;
+      updateDisplay();
+    };
 
     fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/${targetDate}?unitGroup=us&include=days&key=${apiKey}&contentType=json`)
       .then(response => response.json())
       .then(data => {
         const day = data.days[0];
-        weatherData = day;
+        dataCache = day;
 
+        updateDisplay();
         document.getElementById("conditions").textContent = day.conditions || "N/A";
         document.getElementById("humidity").textContent = `${day.humidity}%`;
         document.getElementById("precip").textContent = `${day.precipprob || 0}%`;
         document.getElementById("wind").textContent = `${day.windspeed} mph`;
-        document.getElementById("uv").textContent = day.uvindex !== null ? day.uvindex : "N/A";
+        document.getElementById("uv").textContent = day.uvindex ?? "N/A";
 
         const sunrise = DateTime.fromISO(`${targetDate}T${day.sunrise}`, { zone: data.timezone });
         const sunset = DateTime.fromISO(`${targetDate}T${day.sunset}`, { zone: data.timezone });
@@ -258,8 +253,6 @@
 
         const cond = (day.icon || "partly-cloudy").toLowerCase().replace(" ", "-");
         document.getElementById("weather-icon").textContent = iconMap[cond] || "🌤️";
-
-        updateTemps();
       })
       .catch(err => console.error("Failed to load weather:", err));
   </script>
