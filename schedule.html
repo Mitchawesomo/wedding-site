@@ -1,130 +1,142 @@
+<!-- schedule.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Schedule - Mitch & Namita's Wedding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wedding Schedule - Mitch & Namita</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Playfair Display', serif;
-      margin: 20px;
-      background-color: #fdfcfb;
-      color: #333;
+      background-color: #fffaf6;
+      margin: 0;
+      padding: 2rem;
       text-align: center;
+      color: #333;
     }
-    .monogram-container {
-      background-color: #fff;
-      padding-top: 1rem;
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 0.2rem;
+      color: #5c4033;
     }
-    .monogram {
-      width: 300px;
-      height: auto;
-      display: block;
-      margin: 0 auto 1rem;
-      filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));
+    h3 {
+      font-weight: normal;
+      font-size: 1rem;
+      color: #6b4c3b;
+      margin-bottom: 2rem;
     }
-    header {
-      background: #d9c6af;
-      padding: 2rem;
-      color: white;
-    }
-    header h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      margin: 0.5rem 0;
-    }
-    h1 span.names {
-      font-family: 'Great Vibes', cursive;
-    }
-    .intro h2 {
-      font-size: 1.8rem;
-      color: #a67856;
-    }
-    .schedule-section {
-      max-width: 600px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background-color: #fff;
+    .schedule-box, .forecast-box {
+      background: #fff;
       border-radius: 1rem;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 650px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     }
-    .schedule-section p {
+    .schedule-box p {
       font-size: 1.1rem;
-      line-height: 1.6;
+      margin: 0.6rem 0;
     }
-    .schedule-list {
-      margin-top: 2rem;
-      list-style: none;
-      padding: 0;
+    .schedule-box p strong {
+      font-size: 1.15rem;
     }
-    .schedule-list li {
-      font-size: 1.2rem;
-      padding: 0.5rem 0;
+    .note {
+      margin-top: 1.5rem;
+      font-style: italic;
+      color: #8b5e3c;
+    }
+    .forecast-title {
+      font-weight: bold;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #a56438;
+    }
+    .weather-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      text-align: left;
+      font-size: 0.95rem;
+      gap: 1rem;
+    }
+    .weather-icon {
+      width: 32px;
+      vertical-align: middle;
+      margin-right: 0.5rem;
     }
     .back-link {
       display: inline-block;
       margin-top: 2rem;
-      text-decoration: none;
-      color: #a67856;
       font-weight: bold;
+      color: #a67856;
+      text-decoration: none;
     }
     .back-link:hover {
       text-decoration: underline;
     }
-    footer {
-      background: #eee;
-      padding: 1rem;
-      font-size: 0.9rem;
-      margin-top: 4rem;
-    }
-    .weather-forecast {
-      margin-top: 4rem;
-    }
   </style>
 </head>
 <body>
-  <div class="monogram-container">
-    <img src="images/wedding_monogram.png" alt="M & N Monogram" class="monogram" />
+  <h2>Our Wedding Day Timeline</h2>
+  <h3>Join us for an unforgettable celebration by the lake!</h3>
+
+  <div class="schedule-box">
+    <p><strong>4:00 PM</strong> – Outdoor lakefront ceremony 🌊</p>
+    <p><strong>5:00 PM</strong> – Cocktail Hour indoors 🍸</p>
+    <p><strong>6:00 PM</strong> – Buffet dinner featuring American and Indian cuisine 🍽️</p>
+    <p><strong>8:00 PM</strong> – Dancing begins 💃🕺</p>
+    <p><strong>Midnight</strong> – Event concludes 🎉</p>
+    <p class="note">Please note: The ceremony will be outdoors by the lake; dinner and dancing will take place indoors.</p>
   </div>
 
-  <header>
-    <h1><span class="names">Mitch + Namita</span></h1>
-  </header>
-
-  <section class="intro">
-    <h2>Wedding Day Timeline</h2>
-    <p>Here's how the day will flow—we can't wait to share every moment with you.</p>
-  </section>
-
-  <section class="schedule-section">
-    <p>We’ll begin our celebration outdoors with a heartfelt lakeside ceremony, set against the peaceful shoreline of Lake Monona. Afterward, join us inside for an evening filled with love, laughter, and dancing. Our buffet dinner will feature both American and Indian cuisine to reflect our cultures and our appetites!</p>
-    <ul class="schedule-list">
-      <li><strong>4:00 PM</strong> – Outdoor lakeside ceremony</li>
-      <li><strong>5:00 PM</strong> – Cocktail hour</li>
-      <li><strong>6:00 PM</strong> – Buffet dinner with American & Indian fare</li>
-      <li><strong>7:30 PM</strong> – Let the dancing begin!</li>
-      <li><strong>Midnight</strong> – Event concludes</li>
-    </ul>
-
-    <div class="weather-forecast">
-       <h3>Weather Forecast for July 19 – Madison, WI</h3>
-       <p style="font-size: 0.95rem;">
-         Forecasts become more accurate as the day approaches! Check back closer to the wedding for the most up-to-date details.
-       </p>
-       <img src="images/forecast.png" alt="Weather Forecast for July 19, 2025" style="max-width: 100%; height: auto; border-radius: 1rem;">
-       <p style="font-size: 0.9rem; margin-top: 0.5rem;">
-         Check the forecast for the latest updates as we get closer to the wedding day!  
-       </p>
+  <div class="forecast-box" id="weather-box">
+    <div class="forecast-title">🌤️ Forecast for Saturday, July 19, 2025 – Madison, WI (°F / °C)</div>
+    <div class="weather-grid" id="weather-content">
+      <div><img src="https://cdn-icons-png.flaticon.com/512/1163/1163624.png" class="weather-icon" /> Conditions: <span id="conditions">Loading...</span></div>
+      <div><strong>Temp:</strong> <span id="temp">Loading...</span></div>
+      <div><strong>Feels Like:</strong> <span id="feelslike">Loading...</span></div>
+      <div><strong>Humidity:</strong> <span id="humidity">Loading...</span></div>
+      <div><strong>Precipitation:</strong> <span id="precip">Loading...</span></div>
+      <div><strong>Cloud Cover:</strong> <span id="cloud">Loading...</span></div>
+      <div><strong>Wind:</strong> <span id="wind">Loading...</span></div>
+      <div><strong>UV Index:</strong> <span id="uv">Loading...</span></div>
+      <div><strong>Sunrise:</strong> <span id="sunrise">Loading...</span> CST</div>
+      <div><strong>Sunset:</strong> <span id="sunset">Loading...</span> CST</div>
     </div>
+  </div>
 
-  </section>
+  <a class="back-link" href="index.html">← Back to Home</a>
 
-  <a href="index.html" class="back-link">← Back to Home</a>
+  <script type="module">
+    import { DateTime } from 'https://cdn.jsdelivr.net/npm/luxon@3.4.3/build/global/luxon.min.js';
 
-  <footer>
-    <p>With love, Mitch & Namita</p>
-  </footer>
+    async function fetchWeather() {
+      const res = await fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Madison,WI/2025-07-19?unitGroup=us&key=REMOVED&contentType=json");
+      const data = await res.json();
+      const day = data.days[0];
+
+      document.getElementById("conditions").textContent = day.conditions;
+      document.getElementById("temp").textContent = `${day.tempmin}°F / ${c(day.tempmin)}°C → ${day.tempmax}°F / ${c(day.tempmax)}°C`;
+      document.getElementById("feelslike").textContent = `${day.feelslikemin}°F / ${c(day.feelslikemin)}°C → ${day.feelslikemax}°F / ${c(day.feelslikemax)}°C`;
+      document.getElementById("humidity").textContent = `${day.humidity}%`;
+      document.getElementById("precip").textContent = `${day.precipprob}% chance`;
+      document.getElementById("cloud").textContent = `${day.cloudcover}%`;
+      document.getElementById("wind").textContent = `${day.windspeed} mph`;
+      document.getElementById("uv").textContent = day.uvindex ?? "N/A";
+
+      const sunrise = DateTime.fromISO(day.sunrise, { zone: data.timezone }).toFormat('h:mm a');
+      const sunset = DateTime.fromISO(day.sunset, { zone: data.timezone }).toFormat('h:mm a');
+      document.getElementById("sunrise").textContent = sunrise;
+      document.getElementById("sunset").textContent = sunset;
+    }
+
+    function c(f) {
+      return Math.round((f - 32) * 5 / 9 * 10) / 10;
+    }
+
+    fetchWeather();
+  </script>
 </body>
 </html>
 
