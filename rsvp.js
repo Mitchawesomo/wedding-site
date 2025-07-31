@@ -2,20 +2,22 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
 import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
 
-// Your Firebase configuration
+// Your Firebase configuration (REMOVED for security)
 const firebaseConfig = {
   apiKey: "REMOVED",
   authDomain: "REMOVED",
   projectId: "REMOVED",
-  storageBucket: "REMOVED.firebasestorage.app",
+  storageBucket: "REMOVED",
   messagingSenderId: "REMOVED",
-  appId: "1:REMOVED:web:f851cdd8f33f4ca4e35166",
+  appId: "REMOVED",
   measurementId: "REMOVED"
 };
 
+console.log("RSVP collection is disabled. 🎉 Wedding complete!")
+
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+// const app = initializeApp(firebaseConfig);
+// const db = getFirestore(app);
 
 const rsvpForm = document.getElementById('rsvpForm');
 const confirmationMessage = document.getElementById('confirmationMessage');
